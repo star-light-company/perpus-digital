@@ -14,10 +14,13 @@
     </div>
     
     <div class="row">
-      <div v-for="book in books" :key="book.id" class="col-3">
+      <div v-for="book in books" :key="book.id" class="col-2">
         <div class="card">
-          <div class="card-header">
-            <img :src="book.Cover" alt="cover" class="cover">
+          <NuxtLink :to="`/detail/${book.id}`">
+            <div class="card-header">
+            <img :src="book.Cover" alt="Cover" class="Cover">
+            </div>
+          </NuxtLink>
             <!-- <td>
               <tr>{{ book.judul }}</tr>
               <tr>{{ book.penulis }}</tr>
@@ -28,16 +31,9 @@
           </div>
         </div>
       </div>
+      </div>
     </div>
-    </div>
-  </div>
 </template>
-
-<style scoped>
-  .github {
-    width: 37px;
-  }
-</style>
 
 <script setup>
 const supabase = useSupabaseClient()
@@ -60,7 +56,7 @@ async function getData() {
 </script>
 
 <style scoped>
-  .cover {
+  .Cover {
     width: 100%;
   }
 </style>
